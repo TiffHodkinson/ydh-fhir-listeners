@@ -16,6 +16,9 @@ try {
 			);
 
 			break;
+		case 'capabilitystatement':
+			whereArray[0].push("id = '".concat(id, "'"));
+			break;
 		case 'condition':
 			break;
 		case 'documentreference':
@@ -81,6 +84,9 @@ try {
 		switch (''.concat(type)) {
 			case 'allergyintolerance':
 				data = buildAllergyIntoleranceResource(result);
+				break;
+			case 'capabilitystatement':
+				data = buildCapabilityStatementResource(result);
 				break;
 			case 'condition':
 				// data = buildConditionResource(result);

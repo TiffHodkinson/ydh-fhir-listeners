@@ -15,6 +15,9 @@ try {
 				`(alle.ALG_RowId = REPLACE(''${id}'', ''-'', ''||''))`
 			);
 			break;
+		case 'capabilitystatement':
+			whereArray[0].push(`id = '${id}'`);
+			break;
 		case 'condition':
 			break;
 		case 'documentreference':
@@ -67,6 +70,9 @@ try {
 		switch (`${type}`) {
 			case 'allergyintolerance':
 				data = buildAllergyIntoleranceResource(result);
+				break;
+			case 'capabilitystatement':
+				data = buildCapabilityStatementResource(result);
 				break;
 			case 'condition':
 				// data = buildConditionResource(result);
